@@ -68,6 +68,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
           fill
           className="object-cover brightness-[0.35] scale-105"
           priority
+          unoptimized
         />
 
         {/* Gradient Overlay */}
@@ -219,7 +220,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
                               {destinations
                                 .slice(
                                   slideIndex * itemsPerPage,
-                                  (slideIndex + 1) * itemsPerPage
+                                  (slideIndex + 1) * itemsPerPage,
                                 )
                                 .map((dest, idx) => (
                                   <DestinationCard
@@ -228,7 +229,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
                                   />
                                 ))}
                             </div>
-                          )
+                          ),
                         )
                       ) : (
                         <div className="w-full text-center py-12">
@@ -398,24 +399,12 @@ export default function HomeContent({ destinations }: HomeContentProps) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.05),transparent_50%)]"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="flex flex-col items-center justify-center gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-blue-600 flex items-center justify-center shadow-lg">
-                <MapPin className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold text-blue-600">
-                Wisata Surabaya
-              </span>
-            </div>
-            <p className="text-gray-600 text-lg">
-              &copy; 2025 Kelompok 4 Capstone C. All rights reserved.
+            <p className="text-gray-600 text-lg text-center">
+              This research is funded by the Indonesian Endowment Fund for
+              Education (LPDP) on behalf of the Indonesian Ministry of Higher
+              Education, Science and Technology and managed under the EQUITY
+              Program (Contract No 3555/PKS/ITS/2025).
             </p>
-            <div className="flex items-center gap-4 text-blue-600">
-              <div className="w-2 h-2 bg-blue-600 animate-pulse"></div>
-              <span className="text-sm">
-                Powered by Hybrid Genetic Algorithm
-              </span>
-              <div className="w-2 h-2 bg-blue-600 animate-pulse"></div>
-            </div>
           </div>
         </div>
       </footer>

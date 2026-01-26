@@ -23,12 +23,21 @@ export async function generateRoutes(
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch route recommendations');
+      // Try to get error message from response body
+      try {
+        const errorData = await response.json();
+        const errorMessage = errorData.detail || errorData.message || `HTTP ${response.status}`;
+        throw new Error(`${response.status}: ${errorMessage}`);
+      } catch (jsonError) {
+        // If parsing JSON fails, throw generic error
+        throw new Error(`HTTP ${response.status}: Failed to fetch route recommendations`);
+      }
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
+    // Re-throw the error to be handled by the caller
     throw error;
   }
 }

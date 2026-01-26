@@ -4,6 +4,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { Destination } from '@/types';
 import { MapPin, Clock, Star } from 'lucide-react';
+import { useState } from 'react';
 
 // Dynamically import MapComponent to avoid SSR issues
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
@@ -22,6 +23,7 @@ interface DestinationDetailProps {
 export default function DestinationDetail({
   destination,
 }: DestinationDetailProps) {
+  const [imgError, setImgError] = useState(false);
   const categoryLabels: { [key: string]: string } = {
     makanan_berat: 'Makanan Berat',
     makanan_ringan: 'Makanan Ringan',
@@ -61,14 +63,18 @@ export default function DestinationDetail({
       <div className="relative h-[600px] w-full bg-gray-200 overflow-hidden">
         <Image
           src={
-            destination.image_url ||
-            destination.gambar ||
-            `https://picsum.photos/seed/${destination.place_id}/1920/800`
+            imgError
+              ? '/images/placeholder.png'
+              : destination.image_url ||
+                destination.gambar ||
+                '/images/placeholder.png'
           }
           alt={destination.nama}
           fill
           className="object-cover brightness-75 hover:scale-105 transition-transform duration-500"
           priority
+          onError={() => setImgError(true)}
+          unoptimized
         />
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gray-900/50"></div>

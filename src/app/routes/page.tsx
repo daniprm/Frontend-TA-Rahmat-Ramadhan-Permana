@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { MapPin, Route as RouteIcon, Star, ExternalLink } from 'lucide-react';
 import DestinationCard from '@/components/DestinationCard';
@@ -57,12 +57,23 @@ interface BackendRoute {
   google_maps_url: string;
 }
 
+// Interface untuk route validation info
+interface RouteValidationInfo {
+  max_distance_km: number;
+  total_hga_attempts: number;
+  parallel_instances: number;
+  rejected_routes_count: number;
+  valid_routes_found: number;
+  search_time_seconds: number;
+}
+
 // Interface untuk response API
 interface BackendApiResponse {
   success: boolean;
   message: string;
   data: {
     routes: BackendRoute[];
+    route_validation?: RouteValidationInfo;
   };
 }
 
@@ -103,6 +114,56 @@ export default function RoutesPage() {
   const [selectedRoute, setSelectedRoute] = useState<BackendRoute | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // Load data from localStorage on mount
+  useEffect(() => {
+    const savedRouteData = localStorage.getItem('routeData');
+    const savedSelectedRoute = localStorage.getItem('selectedRoute');
+    const savedUserLocation = localStorage.getItem('userLocation');
+
+    if (savedRouteData) {
+      try {
+        const parsedRouteData = JSON.parse(savedRouteData);
+        setRouteData(parsedRouteData);
+      } catch (e) {
+        console.error('Failed to parse saved route data:', e);
+      }
+    }
+
+    if (savedSelectedRoute) {
+      try {
+        const parsedSelectedRoute = JSON.parse(savedSelectedRoute);
+        setSelectedRoute(parsedSelectedRoute);
+      } catch (e) {
+        console.error('Failed to parse saved selected route:', e);
+      }
+    }
+
+    if (savedUserLocation) {
+      try {
+        const parsedLocation = JSON.parse(savedUserLocation);
+        setUserLocation(parsedLocation);
+        setLatDisplay(parsedLocation.latitude.toString());
+        setLngDisplay(parsedLocation.longitude.toString());
+      } catch (e) {
+        console.error('Failed to parse saved user location:', e);
+      }
+    }
+  }, []);
+
+  // Save routeData to localStorage whenever it changes
+  useEffect(() => {
+    if (routeData) {
+      localStorage.setItem('routeData', JSON.stringify(routeData));
+    }
+  }, [routeData]);
+
+  // Save selectedRoute to localStorage whenever it changes
+  useEffect(() => {
+    if (selectedRoute) {
+      localStorage.setItem('selectedRoute', JSON.stringify(selectedRoute));
+    }
+  }, [selectedRoute]);
+
   const handleLocationSelect = useCallback((lat: number, lng: number) => {
     setUserLocation({ latitude: lat, longitude: lng });
     setLatDisplay(lat.toString());
@@ -137,6 +198,12 @@ export default function RoutesPage() {
     setIsLoading(true);
     setError(null);
 
+    // Clear previous results
+    setRouteData(null);
+    setSelectedRoute(null);
+    localStorage.removeItem('routeData');
+    localStorage.removeItem('selectedRoute');
+
     try {
       const response = await generateRoutes(userLocation);
 
@@ -156,13 +223,63 @@ export default function RoutesPage() {
         if (backendResponse.data.routes.length > 0) {
           setSelectedRoute(backendResponse.data.routes[0]);
         }
+
+        // Save userLocation only after successful route generation
+        localStorage.setItem('userLocation', JSON.stringify(userLocation));
       } else {
         setError('Response API tidak sesuai format yang diharapkan');
       }
-    } catch {
-      setError(
-        'Gagal mengambil rekomendasi rute. Pastikan API berjalan di http://localhost:8000'
-      );
+    } catch (error: unknown) {
+      // Handle different error types
+      if (error instanceof Error) {
+        const errorMessage = error.message;
+
+        // Check if it's a timeout error (408 or 500 with timeout message)
+        if (
+          errorMessage.includes('408') ||
+          errorMessage.includes('500') ||
+          errorMessage.toLowerCase().includes('timeout') ||
+          errorMessage.includes('60 detik') ||
+          errorMessage.includes('terlalu jauh') ||
+          errorMessage.includes('exceeded')
+        ) {
+          // Extract the actual error message from backend if available
+          const match = errorMessage.match(/:\s*(.+)/);
+          const backendMessage = match ? match[1] : errorMessage;
+
+          setError(
+            backendMessage.includes('terlalu jauh') ||
+              backendMessage.includes('timeout') ||
+              backendMessage.includes('60 detik')
+              ? backendMessage
+              : 'Lokasi Anda kemungkinan terlalu jauh dari area wisata Surabaya. Silakan pilih lokasi yang lebih dekat dengan pusat kota Surabaya atau area wisata yang tersedia.'
+          );
+        }
+        // Check if it's a connection error
+        else if (
+          errorMessage.includes('Failed to fetch') ||
+          errorMessage.includes('Network')
+        ) {
+          setError(
+            'Tidak dapat terhubung ke server. Pastikan API backend berjalan di http://localhost:8000'
+          );
+        }
+        // Default error with backend message if available
+        else {
+          // Try to extract meaningful message after status code
+          const match = errorMessage.match(/\d{3}:\s*(.+)/);
+          const cleanMessage = match ? match[1] : errorMessage;
+
+          setError(
+            cleanMessage ||
+              'Gagal mengambil rekomendasi rute. Silakan coba lagi.'
+          );
+        }
+      } else {
+        setError(
+          'Gagal mengambil rekomendasi rute. Pastikan API berjalan di http://localhost:8000'
+        );
+      }
     } finally {
       setIsLoading(false);
     }
@@ -374,11 +491,48 @@ export default function RoutesPage() {
                 </div>
 
                 {error && (
-                  <div className="mt-6 p-5 bg-red-50 border-2 border-red-300">
-                    <p className="text-sm font-bold text-red-700 flex items-center gap-2">
-                      <span className="text-xl">⚠️</span>
-                      {error}
-                    </p>
+                  <div className="mt-6 p-6 bg-red-50 border-2 border-red-300">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl flex-shrink-0">⚠️</span>
+                      <div className="flex-1">
+                        <p className="text-sm font-bold text-red-700 mb-2">
+                          {error}
+                        </p>
+                        {(error.includes('timeout') ||
+                          error.includes('Timeout') ||
+                          error.includes('60 detik') ||
+                          error.includes('terlalu jauh')) && (
+                          <div className="mt-3 pt-3 border-t border-red-200">
+                            <p className="text-xs font-semibold text-red-600 mb-2">
+                              💡 Saran:
+                            </p>
+                            <ul className="text-xs text-red-600 space-y-1">
+                              <li className="flex items-start gap-2">
+                                <span className="mt-0.5">•</span>
+                                <span>
+                                  Gunakan lokasi di dalam atau dekat dengan area
+                                  Surabaya
+                                </span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-0.5">•</span>
+                                <span>
+                                  Contoh koordinat: -7.2575, 112.7521 (Tugu
+                                  Pahlawan)
+                                </span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-0.5">•</span>
+                                <span>
+                                  Atau gunakan tombol &quot;Gunakan Lokasi Saat
+                                  Ini&quot; jika Anda di Surabaya
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

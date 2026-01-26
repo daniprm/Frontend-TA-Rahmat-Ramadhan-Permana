@@ -4,6 +4,7 @@ import { Destination } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 
 interface DestinationCardProps {
   destination: Destination;
@@ -14,6 +15,7 @@ export default function DestinationCard({
   destination,
   showOrder = false,
 }: DestinationCardProps) {
+  const [imgError, setImgError] = useState(false);
   const categoryLabels: { [key: string]: string } = {
     makanan_berat: 'Makanan Berat',
     makanan_ringan: 'Makanan Ringan',
@@ -46,13 +48,17 @@ export default function DestinationCard({
       <div className="relative h-72 w-full bg-gray-200 overflow-hidden">
         <Image
           src={
-            destination.image_url ||
-            destination.gambar ||
-            `https://picsum.photos/seed/${destination.nama}/600/400`
+            imgError
+              ? '/images/placeholder.png'
+              : destination.image_url ||
+                destination.gambar ||
+                '/images/placeholder.png'
           }
           alt={destination.nama}
           fill
           className="object-cover group-hover:scale-110 transition-all duration-500"
+          onError={() => setImgError(true)}
+          unoptimized
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-60 group-hover:opacity-70 transition-opacity duration-300"></div>
