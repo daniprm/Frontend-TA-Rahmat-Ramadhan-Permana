@@ -9,7 +9,7 @@ import { generateRoutes } from '@/lib/api';
 // Dynamic import for LocationPickerMap to avoid SSR issues
 const LocationPickerMap = dynamic(
   () => import('@/components/LocationPickerMap'),
-  { ssr: false }
+  { ssr: false },
 );
 
 // Dynamic import for MapComponent to avoid SSR issues with Leaflet
@@ -85,7 +85,7 @@ function transformDestination(backendDest: BackendDestination) {
     kategori: backendDest.kategori,
     coordinates: [backendDest.latitude, backendDest.longitude] as [
       number,
-      number
+      number,
     ],
     alamat: backendDest.alamat,
     image_url: backendDest.image_url,
@@ -104,10 +104,10 @@ export default function RoutesPage() {
   const [userLocation, setUserLocation] = useState(DEFAULT_LOCATION);
   // Display values for inputs (can be empty strings)
   const [latDisplay, setLatDisplay] = useState<string>(
-    DEFAULT_LOCATION.latitude.toString()
+    DEFAULT_LOCATION.latitude.toString(),
   );
   const [lngDisplay, setLngDisplay] = useState<string>(
-    DEFAULT_LOCATION.longitude.toString()
+    DEFAULT_LOCATION.longitude.toString(),
   );
   const [isLoading, setIsLoading] = useState(false);
   const [routeData, setRouteData] = useState<BackendApiResponse | null>(null);
@@ -185,9 +185,9 @@ export default function RoutesPage() {
         },
         () => {
           alert(
-            'Tidak dapat mengakses lokasi. Menggunakan lokasi default (Surabaya).'
+            'Tidak dapat mengakses lokasi. Menggunakan lokasi default (Surabaya).',
           );
-        }
+        },
       );
     } else {
       alert('Geolocation tidak didukung oleh browser Anda.');
@@ -252,7 +252,7 @@ export default function RoutesPage() {
               backendMessage.includes('timeout') ||
               backendMessage.includes('60 detik')
               ? backendMessage
-              : 'Lokasi Anda kemungkinan terlalu jauh dari area wisata Surabaya. Silakan pilih lokasi yang lebih dekat dengan pusat kota Surabaya atau area wisata yang tersedia.'
+              : 'Lokasi Anda kemungkinan terlalu jauh dari area wisata Surabaya. Silakan pilih lokasi yang lebih dekat dengan pusat kota Surabaya atau area wisata yang tersedia.',
           );
         }
         // Check if it's a connection error
@@ -261,7 +261,7 @@ export default function RoutesPage() {
           errorMessage.includes('Network')
         ) {
           setError(
-            'Tidak dapat terhubung ke server. Pastikan API backend berjalan di http://localhost:8000'
+            'Tidak dapat terhubung ke server. Pastikan API backend berjalan di http://localhost:8000',
           );
         }
         // Default error with backend message if available
@@ -272,12 +272,12 @@ export default function RoutesPage() {
 
           setError(
             cleanMessage ||
-              'Gagal mengambil rekomendasi rute. Silakan coba lagi.'
+              'Gagal mengambil rekomendasi rute. Silakan coba lagi.',
           );
         }
       } else {
         setError(
-          'Gagal mengambil rekomendasi rute. Pastikan API berjalan di http://localhost:8000'
+          'Gagal mengambil rekomendasi rute. Pastikan API berjalan di http://localhost:8000',
         );
       }
     } finally {
@@ -642,7 +642,7 @@ export default function RoutesPage() {
                               <span className="text-sm text-blue-600 font-semibold">
                                 ≈{' '}
                                 {Math.round(
-                                  route.total_travel_time_minutes * 1.55
+                                  route.total_travel_time_minutes * 1.55,
                                 )}{' '}
                                 menit
                               </span>
@@ -651,7 +651,7 @@ export default function RoutesPage() {
                         </div>
                       </div>
                     </button>
-                  )
+                  ),
                 )}
               </div>
             </div>
@@ -713,7 +713,7 @@ export default function RoutesPage() {
                       </div>
                       <div className="text-3xl font-bold text-blue-600">
                         {Math.round(
-                          selectedRoute.total_travel_time_minutes * 1.55
+                          selectedRoute.total_travel_time_minutes * 1.55,
                         )}{' '}
                         min
                       </div>
@@ -761,7 +761,7 @@ export default function RoutesPage() {
                       userLocation.longitude,
                     ]}
                     destinations={selectedRoute.destinations.map(
-                      transformDestination
+                      transformDestination,
                     )}
                     preCalculatedDistance={selectedRoute.total_distance_km}
                     preCalculatedDuration={
