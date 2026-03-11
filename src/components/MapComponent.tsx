@@ -357,26 +357,26 @@ export default function MapComponent({
     <div className="relative">
       {/* Route Info Display */}
       {showRoute && routeInfo && !isLoading && (
-        <div className="absolute top-4 right-4 bg-white shadow-lg border border-gray-200 z-[1000] overflow-hidden min-w-[200px]">
+        <div className="absolute top-2 right-2 left-12 sm:top-4 sm:right-4 sm:left-auto bg-white/95 backdrop-blur-sm shadow-md border border-gray-200 z-[1000] overflow-hidden rounded-md sm:rounded-none sm:min-w-[200px]">
           <div className="h-1 bg-blue-600"></div>
-          <div className="p-4">
-            <p className="text-xs font-bold text-gray-700 mb-3 uppercase tracking-wider">
+          <div className="p-2 sm:p-4">
+            <p className="text-[10px] sm:text-xs font-bold text-gray-700 mb-1.5 sm:mb-3 uppercase tracking-wider">
               Estimasi Perjalanan
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between p-2 bg-gradient-to-br from-white to-gray-50 border-l-4 border-blue-600">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            <div className="flex sm:flex-col gap-2 sm:space-y-3 sm:gap-0">
+              <div className="flex-1 flex sm:flex-row flex-col sm:items-center justify-between p-1.5 sm:p-2 bg-gradient-to-br from-white to-gray-50 border-l-2 sm:border-l-4 border-blue-600">
+                <span className="text-[9px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">
                   Jarak
                 </span>
-                <span className="text-lg font-bold text-blue-600">
+                <span className="text-sm sm:text-lg font-bold text-blue-600">
                   {formatDistance(routeInfo.distance)}
                 </span>
               </div>
-              <div className="flex items-center justify-between p-2 bg-gradient-to-br from-white to-gray-50 border-l-4 border-gray-700">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <div className="flex-1 flex sm:flex-row flex-col sm:items-center justify-between p-1.5 sm:p-2 bg-gradient-to-br from-white to-gray-50 border-l-2 sm:border-l-4 border-gray-700">
+                <span className="text-[9px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">
                   Waktu
                 </span>
-                <span className="text-lg font-bold text-gray-800">
+                <span className="text-sm sm:text-lg font-bold text-gray-800">
                   {formatDuration(routeInfo.duration)}
                 </span>
               </div>
@@ -386,10 +386,10 @@ export default function MapComponent({
       )}
 
       {showRoute && isLoading && (
-        <div className="absolute top-4 right-4 bg-white px-4 py-2 shadow-lg border border-gray-200 z-[1000]">
+        <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/95 px-3 py-1.5 sm:px-4 sm:py-2 shadow-md border border-gray-200 z-[1000] rounded-md sm:rounded-none">
           <div className="flex items-center gap-2">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-            <span className="text-sm text-gray-600 font-medium">
+            <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-blue-600"></div>
+            <span className="text-[10px] sm:text-sm text-gray-600 font-medium">
               Memuat rute...
             </span>
           </div>

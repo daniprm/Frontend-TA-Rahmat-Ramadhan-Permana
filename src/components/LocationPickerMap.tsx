@@ -119,11 +119,11 @@ export default function LocationPickerMap({
 
   return (
     <div className="relative">
-      <div className="absolute top-4 left-16 bg-white px-4 py-3 shadow-lg z-[1000] border border-gray-200">
-        <p className="text-xs text-gray-600 mb-1">
-          <strong>Tip:</strong> Klik peta atau drag marker untuk memilih lokasi
+      <div className="absolute top-2 left-12 right-2 sm:top-4 sm:left-16 sm:right-auto bg-white/95 backdrop-blur-sm px-2.5 py-2 sm:px-4 sm:py-3 shadow-md z-[1000] border border-gray-200 rounded-md sm:rounded-none max-w-[240px] sm:max-w-none pointer-events-none">
+        <p className="text-[10px] sm:text-xs text-gray-600 mb-0.5 sm:mb-1 leading-tight">
+          <strong>Tip:</strong> Klik peta/drag marker untuk lokasi
         </p>
-        <p className="text-xs text-slate-700 font-mono font-semibold">
+        <p className="text-[10px] sm:text-xs text-slate-700 font-mono font-semibold">
           {selectedLocation[0].toFixed(6)}, {selectedLocation[1].toFixed(6)}
         </p>
       </div>
