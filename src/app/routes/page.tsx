@@ -252,7 +252,7 @@ export default function RoutesPage() {
               backendMessage.includes('timeout') ||
               backendMessage.includes('60 detik')
               ? backendMessage
-              : 'Lokasi Anda kemungkinan terlalu jauh dari area wisata Surabaya. Silakan pilih lokasi yang lebih dekat dengan pusat kota Surabaya atau area wisata yang tersedia.',
+              : 'Sistem sedang padat digunakan, silakan coba lagi dan pastikan pilih lokasi yang lebih dekat dengan pusat kota Surabaya.',
           );
         }
         // Check if it's a connection error
