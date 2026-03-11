@@ -32,11 +32,12 @@ export default async function LihatSemuaPage() {
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-8 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
-          <div className="flex items-center gap-8 animate-fade-in-up">
-            <div className="relative">
-            <div className="w-16 h-16 md:w-28 md:h-28 bg-white flex items-center justify-center shadow-2xl">
+          <div className="flex items-center gap-3 md:gap-8 animate-fade-in-up">
+            {/* Icon — compact on mobile, large on desktop */}
+            <div className="flex-shrink-0">
+              <div className="w-10 h-10 md:w-28 md:h-28 bg-white flex items-center justify-center shadow-2xl">
                 <svg
-                  className="w-16 h-16 text-blue-600"
+                  className="w-5 h-5 md:w-16 md:h-16 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -56,14 +57,16 @@ export default async function LihatSemuaPage() {
                 </svg>
               </div>
             </div>
-            <div className="flex-1">
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight leading-tight">
+
+            {/* Text */}
+            <div className="flex-1 min-w-0">
+              <h1 className="text-xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-1 md:mb-4 tracking-tight leading-tight">
                 <span className="text-white">Semua Destinasi</span>
               </h1>
-              <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed">
+              <p className="text-sm sm:text-lg md:text-2xl lg:text-3xl text-blue-100 font-light leading-relaxed">
                 Jelajahi{' '}
-                <span className="font-bold">{destinations.length}</span>{' '}
-                destinasi wisata kuliner dan non-kuliner di Surabaya
+                <span className="font-bold text-white">{destinations.length}</span>{' '}
+                destinasi wisata di Surabaya
               </p>
             </div>
           </div>

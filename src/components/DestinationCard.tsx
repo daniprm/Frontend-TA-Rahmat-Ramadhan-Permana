@@ -45,7 +45,7 @@ export default function DestinationCard({
       )}
 
       {/* Enhanced Image Section */}
-      <div className="relative h-72 w-full bg-gray-200 overflow-hidden">
+      <div className="relative h-44 sm:h-56 md:h-72 w-full bg-gray-200 overflow-hidden">
         <Image
           src={
             imgError
@@ -76,16 +76,16 @@ export default function DestinationCard({
       </div>
 
       {/* Content Section with Enhanced Design */}
-      <div className="relative p-8 flex flex-col flex-grow z-10">
-        <h3 className="font-bold text-2xl text-gray-900 mb-5 line-clamp-2 leading-tight min-h-[3.5rem] group-hover:text-blue-600 transition-colors duration-300">
+      <div className="relative p-4 sm:p-5 md:p-8 flex flex-col flex-grow z-10">
+        <h3 className="font-bold text-lg sm:text-xl md:text-2xl text-gray-900 mb-3 md:mb-5 line-clamp-2 leading-tight min-h-[2.5rem] md:min-h-[3.5rem] group-hover:text-blue-600 transition-colors duration-300">
           {destination.nama}
         </h3>
 
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-6">
           {destination.kategori.slice(0, 3).map((kat, idx) => (
             <span
               key={idx}
-              className="text-xs border border-blue-600 text-blue-600 px-4 py-2 font-semibold bg-white hover:bg-blue-600 hover:text-white transition-all duration-300 uppercase tracking-wider animate-fade-in-up"
+              className="text-xs border border-blue-600 text-blue-600 px-2.5 py-1 md:px-4 md:py-2 font-semibold bg-white hover:bg-blue-600 hover:text-white transition-all duration-300 uppercase tracking-wider animate-fade-in-up"
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
               {categoryLabels[kat] || kat}
@@ -99,7 +99,7 @@ export default function DestinationCard({
         </div>
 
         {destination.deskripsi && (
-          <p className="text-sm text-gray-600 mb-6 line-clamp-3 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
+          <p className="text-sm text-gray-600 mb-3 md:mb-6 line-clamp-2 md:line-clamp-3 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
             {destination.deskripsi}
           </p>
         )}
@@ -108,7 +108,7 @@ export default function DestinationCard({
           href={`/destination/${encodeURIComponent(
             destination.place_id ?? ''
           )}`}
-          className="group/btn flex items-center justify-center gap-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 px-8 shadow-xl transition-all duration-300 mt-auto transform hover:scale-105"
+          className="group/btn flex items-center justify-center gap-2 md:gap-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 md:py-5 px-4 md:px-8 shadow-xl transition-all duration-300 mt-auto transform hover:scale-105 text-sm md:text-base"
         >
           <span>LIHAT DETAIL</span>
           <ArrowRight className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-300" />

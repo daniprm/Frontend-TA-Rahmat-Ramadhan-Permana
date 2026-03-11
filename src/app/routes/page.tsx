@@ -306,19 +306,18 @@ export default function RoutesPage() {
       {/* Header with Enhanced Design */}
       <div className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-8 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
-          <div className="flex items-baseline gap-4 md:gap-8 animate-fade-in-up">
-            <div className="relative">
-              <div className="w-16 h-16 md:w-24 md:h-24 bg-white flex items-center justify-center shadow-2xl">
-                <RouteIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-600" />
+          <div className="flex items-center gap-3 md:gap-8 animate-fade-in-up">
+            <div className="flex-shrink-0">
+              <div className="w-10 h-10 md:w-24 md:h-24 bg-white flex items-center justify-center shadow-2xl">
+                <RouteIcon className="w-5 h-5 md:w-12 md:h-12 text-blue-600" />
               </div>
             </div>
-            <div className="flex-1">
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight leading-tight">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-1 md:mb-4 tracking-tight leading-tight">
                 <span className="text-white">Rekomendasi Rute Wisata</span>
               </h1>
-              <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed">
-                Temukan destinasi wisata terbaik di Surabaya dengan rekomendasi
-                rute yang{' '}
+              <p className="text-sm sm:text-lg md:text-2xl lg:text-3xl text-blue-100 font-light leading-relaxed">
+                Temukan destinasi wisata terbaik di Surabaya dengan rute{' '}
                 <span className="text-white font-semibold">optimal</span>
               </p>
             </div>
@@ -336,11 +335,11 @@ export default function RoutesPage() {
               <div className="h-2 bg-blue-600"></div>
 
               <div className="p-5 sm:p-7 md:p-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-blue-600 flex items-center justify-center shadow-xl">
-                    <MapPin className="w-8 h-8 text-white" />
+                <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-8">
+                  <div className="w-10 h-10 md:w-16 md:h-16 bg-blue-600 flex items-center justify-center shadow-xl">
+                    <MapPin className="w-5 h-5 md:w-8 md:h-8 text-white" />
                   </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-600">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900">
                     Masukkan Lokasi Anda
                   </h2>
                 </div>
@@ -553,7 +552,7 @@ export default function RoutesPage() {
                     Pilih Lokasi di Peta
                   </h2>
                 </div>
-                <div className="flex-1 overflow-hidden shadow-2xl border-2 border-blue-600/50">
+                <div className="flex-1 isolate overflow-hidden shadow-2xl border-2 border-blue-600/50">
                   <LocationPickerMap
                     initialLocation={[
                       userLocation.latitude,
@@ -574,17 +573,17 @@ export default function RoutesPage() {
           <div className="container mx-auto px-4 sm:px-6 md:px-12">
             <div className="mb-12">
               {/* Section Header with Animation */}
-              <div className="flex items-center gap-6 mb-10 animate-fade-in-up">
-                <div className="relative">
-                  <div className="w-20 h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
-                    <RouteIcon className="w-10 h-10 text-white" />
+              <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-10 animate-fade-in-up">
+                <div className="relative flex-shrink-0">
+                  <div className="w-12 h-12 md:w-20 md:h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
+                    <RouteIcon className="w-6 h-6 md:w-10 md:h-10 text-white" />
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
+                  <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-1 md:mb-2">
                     Hasil Rekomendasi Rute
                   </h2>
-                  <p className="text-gray-600 text-xl">
+                  <p className="text-gray-600 text-sm md:text-xl">
                     <span className="text-blue-600 font-bold">
                       {routeData.data.routes.length}
                     </span>{' '}
@@ -665,53 +664,53 @@ export default function RoutesPage() {
             <div className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-8 md:mb-12 animate-fade-in-up">
               <div className="h-2 bg-blue-600"></div>
               <div className="p-5 sm:p-7 md:p-10">
-                <div className="flex items-center gap-6 mb-10">
-                  <div className="relative">
-                    <div className="w-20 h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
-                      <RouteIcon className="w-10 h-10 text-white" />
+                <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-10">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 md:w-20 md:h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
+                      <RouteIcon className="w-6 h-6 md:w-10 md:h-10 text-white" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 flex items-center justify-center text-xs font-bold text-white">
+                    <div className="absolute -top-2 -right-2 w-6 h-6 md:w-8 md:h-8 bg-blue-600 flex items-center justify-center text-[10px] md:text-xs font-bold text-white">
                       {selectedRoute.rank}
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
+                    <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-1 md:mb-2">
                       Detail Rute #{selectedRoute.rank}
                     </h2>
-                    <p className="text-gray-600 text-xl">
+                    <p className="text-gray-600 text-sm md:text-xl">
                       Statistik Perjalanan Anda
                     </p>
                   </div>
                 </div>
 
                 {/* Enhanced Statistics Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="p-8 bg-blue-50 border-2 border-blue-200 transform hover:scale-105 transition-all duration-300">
-                    <div className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
+                <div className="grid grid-cols-2 gap-3 md:gap-8">
+                  <div className="p-4 md:p-8 bg-blue-50 border-2 border-blue-200 transform hover:scale-105 transition-all duration-300">
+                    <div className="text-xs md:text-sm font-bold text-gray-700 mb-2 md:mb-3 uppercase tracking-wider">
                       Destinasi
                     </div>
-                    <div className="text-6xl font-extrabold text-gray-900 mb-2">
+                    <div className="text-3xl md:text-6xl font-extrabold text-gray-900 mb-1 md:mb-2">
                       {selectedRoute.destinations.length}
                     </div>
-                    <div className="text-sm text-gray-600 font-semibold">
-                      Tempat Wisata
+                    <div className="text-xs md:text-sm text-gray-600 font-semibold">
+                      Tempat
                     </div>
                   </div>
-                  <div className="p-8 bg-blue-50 border-2 border-blue-200 transform hover:scale-105 transition-all duration-300">
-                    <div className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                      Jarak Rute
+                  <div className="p-4 md:p-8 bg-blue-50 border-2 border-blue-200 transform hover:scale-105 transition-all duration-300">
+                    <div className="text-xs md:text-sm font-bold text-gray-700 mb-2 md:mb-3 uppercase tracking-wider">
+                      Jarak
                     </div>
-                    <div className="text-6xl font-extrabold text-blue-600 mb-2">
-                      {selectedRoute.total_distance_km.toFixed(2)}
+                    <div className="text-2xl md:text-6xl font-extrabold text-blue-600 mb-1 md:mb-2">
+                      {selectedRoute.total_distance_km.toFixed(1)}
                     </div>
-                    <div className="text-sm text-gray-600 font-semibold">
-                      Kilometer
+                    <div className="text-xs md:text-sm text-gray-600 font-semibold">
+                      km
                     </div>
-                    <div className="mt-4 pt-4 border-t-2 border-blue-200">
-                      <div className="text-xs text-gray-700 mb-2 font-bold uppercase tracking-wider">
-                        Estimasi Waktu
+                    <div className="mt-2 md:mt-4 pt-2 md:pt-4 border-t-2 border-blue-200">
+                      <div className="text-xs text-gray-700 mb-1 font-bold uppercase tracking-wider">
+                        Estimasi
                       </div>
-                      <div className="text-3xl font-bold text-blue-600">
+                      <div className="text-base md:text-3xl font-bold text-blue-600">
                         {Math.round(
                           selectedRoute.total_travel_time_minutes * 1.55,
                         )}{' '}
@@ -719,17 +718,7 @@ export default function RoutesPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-8 bg-blue-50 border-2 border-blue-200 transform hover:scale-105 transition-all duration-300">
-                    <div className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
-                      Peringkat
-                    </div>
-                    <div className="text-6xl font-extrabold text-gray-900 mb-2">
-                      #{selectedRoute.rank}
-                    </div>
-                    <div className="text-sm text-gray-600 font-semibold">
-                      Rekomendasi
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -741,20 +730,20 @@ export default function RoutesPage() {
             >
               <div className="h-2 bg-blue-600"></div>
               <div className="p-10">
-                <div className="flex items-center gap-6 mb-10">
-                  <div className="w-20 h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
-                    <MapPin className="w-10 h-10 text-white" />
+                <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-10">
+                  <div className="flex-shrink-0 w-12 h-12 md:w-20 md:h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
+                    <MapPin className="w-6 h-6 md:w-10 md:h-10 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
+                    <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-1 md:mb-2">
                       Peta Rute Perjalanan
                     </h2>
-                    <p className="text-gray-600 text-xl">
+                    <p className="text-gray-600 text-sm md:text-xl">
                       Visualisasi Rute Optimal Anda
                     </p>
                   </div>
                 </div>
-                <div className="overflow-hidden shadow-2xl border-4 border-blue-600/50">
+                <div className="isolate overflow-hidden shadow-2xl border-4 border-blue-600/50">
                   <MapComponent
                     userLocation={[
                       userLocation.latitude,

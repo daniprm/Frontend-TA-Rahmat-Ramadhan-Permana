@@ -42,7 +42,7 @@ export default function DestinationDetail({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 pb-16 md:pb-0">
       {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div
@@ -60,7 +60,7 @@ export default function DestinationDetail({
       </div>
 
       {/* Hero Image */}
-      <div className="relative h-[600px] w-full bg-gray-200 overflow-hidden">
+      <div className="relative h-52 sm:h-72 md:h-[450px] lg:h-[600px] w-full bg-gray-200 overflow-hidden">
         <Image
           src={
             imgError
@@ -81,16 +81,16 @@ export default function DestinationDetail({
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
 
         {/* Title Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-10 md:p-16 z-10">
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-10 lg:p-16 z-10">
           <div className="container mx-auto animate-fade-in-up">
-            <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-3 md:mb-6 drop-shadow-2xl leading-tight">
               {destination.nama}
             </h1>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-1.5 md:gap-3">
               {destination.kategori.map((kat, idx) => (
                 <span
                   key={idx}
-                  className="px-6 py-3 border-2 bg-white border-blue-600 text-blue-600 font-bold text-sm uppercase tracking-widest shadow-2xl transition-all duration-300 animate-bounce-in"
+                  className="px-3 py-1 md:px-6 md:py-3 border-2 bg-white border-blue-600 text-blue-600 font-bold text-xs md:text-sm uppercase tracking-widest shadow-2xl transition-all duration-300 animate-bounce-in"
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
                   {categoryLabels[kat] || kat}
@@ -102,16 +102,16 @@ export default function DestinationDetail({
       </div>
 
       {/* Content Section */}
-      <div className="relative bg-white py-16">
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="relative bg-white py-8 md:py-16">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Description Card */}
               <div className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl animate-fade-in-up">
                 <div className="h-2 bg-blue-600"></div>
-                <div className="p-10">
-                  <h2 className="text-4xl font-extrabold mb-6 text-gray-900">
+                <div className="p-5 sm:p-7 md:p-10">
+                  <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold mb-4 md:mb-6 text-gray-900">
                     Tentang Destinasi
                   </h2>
                   {destination.deskripsi ? (
@@ -132,12 +132,12 @@ export default function DestinationDetail({
                 style={{ animationDelay: '0.1s' }}
               >
                 <div className="h-2 bg-blue-600"></div>
-                <div className="p-10">
+                <div className="p-5 sm:p-7 md:p-10">
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-16 h-16 bg-blue-600  flex items-center justify-center shadow-xl">
                       <MapPin className="w-8 h-8 text-white" />
                     </div>
-                    <h2 className="text-4xl font-extrabold text-gray-900">
+                    <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-gray-900">
                       Lokasi
                     </h2>
                   </div>
@@ -160,8 +160,8 @@ export default function DestinationDetail({
                 style={{ animationDelay: '0.2s' }}
               >
                 <div className="h-2 bg-blue-600"></div>
-                <div className="p-8">
-                  <h2 className="text-3xl font-extrabold mb-8 text-gray-900">
+                <div className="p-5 sm:p-6 md:p-8">
+                  <h2 className="text-lg sm:text-xl md:text-3xl font-extrabold mb-5 md:mb-8 text-gray-900">
                     Informasi
                   </h2>
 

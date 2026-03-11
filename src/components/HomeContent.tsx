@@ -179,29 +179,29 @@ export default function HomeContent({ destinations }: HomeContentProps) {
               </div>
 
               {/* Featured Destinations Grid */}
-              <div className="relative px-14">
+              <div className="relative px-8 sm:px-10 md:px-14">
                 {/* Navigation Buttons */}
                 {destinations.length > itemsPerPage && (
                   <>
                     <button
                       onClick={prevSlide}
-                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-110 hover:-translate-x-1"
+                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-14 md:h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-110 hover:-translate-x-1"
                       aria-label="Previous"
                     >
-                      <ChevronLeft className="w-8 h-8" />
+                      <ChevronLeft className="w-4 h-4 md:w-8 md:h-8" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-110 hover:translate-x-1"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-14 md:h-14 bg-blue-600 hover:bg-blue-700 text-white shadow-xl transition-all duration-300 flex items-center justify-center transform hover:scale-110 hover:translate-x-1"
                       aria-label="Next"
                     >
-                      <ChevronRight className="w-8 h-8" />
+                      <ChevronRight className="w-4 h-4 md:w-8 md:h-8" />
                     </button>
                   </>
                 )}
 
                 {/* Slideshow Content */}
-                <div className="overflow-hidden mx-5">
+                <div className="overflow-hidden mx-1 md:mx-5">
                   <div
                     className="transition-transform duration-500 ease-in-out"
                     style={{
