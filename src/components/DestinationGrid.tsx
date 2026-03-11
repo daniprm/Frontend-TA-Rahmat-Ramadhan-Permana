@@ -147,7 +147,7 @@ export default function DestinationGrid({
   return (
     <>
       {/* Info Banner with Search */}
-      <div className="glass-dark border-2 border-blue-600/30 p-8 mb-12 backdrop-blur-xl animate-fade-in-up">
+      <div className="glass-dark border-2 border-blue-600/30 p-5 sm:p-8 mb-8 md:mb-12 backdrop-blur-xl animate-fade-in-up">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-blue-600 flex items-center justify-center shadow-xl">
@@ -196,7 +196,7 @@ export default function DestinationGrid({
       </div>
 
       {/* Destinations Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-8">
         {currentDestinations.map((destination, index) => (
           <div
             key={destination.place_id}

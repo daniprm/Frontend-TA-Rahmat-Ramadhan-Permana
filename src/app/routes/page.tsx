@@ -286,7 +286,7 @@ export default function RoutesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 pb-16 md:pb-0">
       {/* Animated Background Particles */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div
@@ -304,19 +304,19 @@ export default function RoutesPage() {
       </div>
 
       {/* Header with Enhanced Design */}
-      <div className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-24 overflow-hidden">
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="flex items-baseline gap-8 animate-fade-in-up">
+      <div className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-8 md:py-24 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+          <div className="flex items-baseline gap-4 md:gap-8 animate-fade-in-up">
             <div className="relative">
-              <div className="w-24 h-24 bg-white flex items-center justify-center shadow-2xl">
-                <RouteIcon className="w-12 h-12 text-blue-600" />
+              <div className="w-16 h-16 md:w-24 md:h-24 bg-white flex items-center justify-center shadow-2xl">
+                <RouteIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-600" />
               </div>
             </div>
             <div className="flex-1">
-              <h1 className="text-6xl md:text-7xl font-extrabold mb-4 tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight leading-tight">
                 <span className="text-white">Rekomendasi Rute Wisata</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-gray-300 font-light leading-relaxed">
+              <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed">
                 Temukan destinasi wisata terbaik di Surabaya dengan rekomendasi
                 rute yang{' '}
                 <span className="text-white font-semibold">optimal</span>
@@ -327,20 +327,20 @@ export default function RoutesPage() {
       </div>
 
       {/* Location Input Section - 2 Column Layout */}
-      <div className="relative bg-white py-16">
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="relative bg-white py-8 md:py-16">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
           {/* Enhanced Main Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Left Column - Input with Glass Morphism */}
             <div className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl backdrop-blur-xl animate-fade-in-up">
               <div className="h-2 bg-blue-600"></div>
 
-              <div className="p-10">
+              <div className="p-5 sm:p-7 md:p-10">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-16 bg-blue-600 flex items-center justify-center shadow-xl">
                     <MapPin className="w-8 h-8 text-white" />
                   </div>
-                  <h2 className="text-3xl font-extrabold text-blue-600">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-600">
                     Masukkan Lokasi Anda
                   </h2>
                 </div>
@@ -544,7 +544,7 @@ export default function RoutesPage() {
               style={{ animationDelay: '0.1s' }}
             >
               <div className="h-2 bg-blue-600"></div>
-              <div className="p-10 h-full flex flex-col">
+              <div className="p-5 sm:p-7 md:p-10 h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-16 bg-blue-600 flex items-center justify-center shadow-xl">
                     <MapPin className="w-8 h-8 text-white" />
@@ -560,7 +560,7 @@ export default function RoutesPage() {
                       userLocation.longitude,
                     ]}
                     onLocationSelect={handleLocationSelect}
-                    height="500px"
+                    height="300px"
                   />
                 </div>
               </div>
@@ -571,7 +571,7 @@ export default function RoutesPage() {
 
         {/* Route Selection with Enhanced Design */}
         {routeData && routeData.data && routeData.data.routes && (
-          <div className="container mx-auto px-6 md:px-12">
+          <div className="container mx-auto px-4 sm:px-6 md:px-12">
             <div className="mb-12">
               {/* Section Header with Animation */}
               <div className="flex items-center gap-6 mb-10 animate-fade-in-up">
@@ -581,7 +581,7 @@ export default function RoutesPage() {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
                     Hasil Rekomendasi Rute
                   </h2>
                   <p className="text-gray-600 text-xl">
@@ -660,11 +660,11 @@ export default function RoutesPage() {
 
         {/* Route Details, Map, and Destinations */}
         {selectedRoute && (
-          <div className="container mx-auto px-6 md:px-12">
+          <div className="container mx-auto px-4 sm:px-6 md:px-12">
             {/* Detail Rute Stats - Vertical Layout */}
-            <div className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-12 animate-fade-in-up">
+            <div className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-8 md:mb-12 animate-fade-in-up">
               <div className="h-2 bg-blue-600"></div>
-              <div className="p-10">
+              <div className="p-5 sm:p-7 md:p-10">
                 <div className="flex items-center gap-6 mb-10">
                   <div className="relative">
                     <div className="w-20 h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
@@ -675,7 +675,7 @@ export default function RoutesPage() {
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
                       Detail Rute #{selectedRoute.rank}
                     </h2>
                     <p className="text-gray-600 text-xl">
@@ -736,7 +736,7 @@ export default function RoutesPage() {
 
             {/* Peta Rute - Full Width Below */}
             <div
-              className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-12 animate-fade-in-up"
+              className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-8 md:mb-12 animate-fade-in-up"
               style={{ animationDelay: '0.1s' }}
             >
               <div className="h-2 bg-blue-600"></div>
@@ -746,7 +746,7 @@ export default function RoutesPage() {
                     <MapPin className="w-10 h-10 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
                       Peta Rute Perjalanan
                     </h2>
                     <p className="text-gray-600 text-xl">
@@ -767,7 +767,7 @@ export default function RoutesPage() {
                     preCalculatedDuration={
                       selectedRoute.total_travel_time_minutes * 1.55
                     }
-                    height="600px"
+                    height="350px"
                   />
                 </div>
                 {/* Google Maps Button - Prominent */}
@@ -789,17 +789,17 @@ export default function RoutesPage() {
 
             {/* Daftar Destinasi - Enhanced Destination List */}
             <div
-              className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-12 animate-fade-in-up"
+              className="bg-white border-2 border-blue-200 overflow-hidden shadow-2xl mb-8 md:mb-12 animate-fade-in-up"
               style={{ animationDelay: '0.2s' }}
             >
               <div className="h-2 bg-blue-600"></div>
-              <div className="p-10">
+              <div className="p-5 sm:p-7 md:p-10">
                 <div className="flex items-center gap-6 mb-10">
                   <div className="w-20 h-20 bg-blue-600 flex items-center justify-center shadow-2xl">
                     <Star className="w-10 h-10 text-white fill-white" />
                   </div>
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
                       Daftar Destinasi
                     </h2>
                     <p className="text-gray-600 text-xl">
@@ -811,7 +811,7 @@ export default function RoutesPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
                   {selectedRoute.destinations.map((destination, idx) => (
                     <div
                       key={`${destination.place_id}-${idx}`}
@@ -835,7 +835,7 @@ export default function RoutesPage() {
           routeData &&
           routeData.data &&
           routeData.data.routes && (
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12">
               <div className="text-center py-32 animate-fade-in-up">
                 <div className="w-32 h-32 bg-blue-600 flex items-center justify-center mx-auto mb-8 shadow-2xl">
                   <RouteIcon className="w-16 h-16 text-white" />

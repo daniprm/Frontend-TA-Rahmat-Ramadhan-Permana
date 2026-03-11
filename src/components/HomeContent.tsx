@@ -35,7 +35,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 pb-16 md:pb-0">
       {/* Animated Particles Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div
@@ -85,15 +85,15 @@ export default function HomeContent({ destinations }: HomeContentProps) {
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center z-10">
-          <div className="container mx-auto px-6 md:px-12">
+          <div className="container mx-auto px-4 sm:px-6 md:px-12">
             <div className="max-w-4xl">
               <div className="animate-fade-in-up">
-                <h1 className="text-7xl md:text-8xl font-extrabold mb-8 drop-shadow-2xl tracking-tight leading-none">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 md:mb-8 drop-shadow-2xl tracking-tight leading-none">
                   <span className="text-white block mb-2 animate-slide-in-left">
                     REKOMENDASI
                   </span>
                   <span
-                    className="text-blue-100 block text-8xl md:text-9xl animate-slide-in-right"
+                    className="text-blue-100 block text-4xl sm:text-6xl md:text-8xl lg:text-9xl animate-slide-in-right"
                     style={{ animationDelay: '0.2s' }}
                   >
                     WISATA SURABAYA
@@ -101,10 +101,10 @@ export default function HomeContent({ destinations }: HomeContentProps) {
                 </h1>
                 <div className="relative inline-block mb-10">
                   <p
-                    className="text-2xl md:text-3xl text-blue-50 font-light tracking-wide leading-relaxed animate-slide-in"
+                    className="text-base sm:text-xl md:text-2xl lg:text-3xl text-blue-50 font-light tracking-wide leading-relaxed animate-slide-in"
                     style={{ animationDelay: '0.4s' }}
                   >
-                    Temukan destinasi wisata terbaik di Surabaya dengan <br />
+                    Temukan destinasi wisata terbaik di Surabaya dengan{' '}
                     <span className="text-white font-semibold">
                       rekomendasi rute yang optimal
                     </span>
@@ -113,7 +113,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
                 </div>
                 <Link
                   href="/routes"
-                  className="group inline-flex items-center gap-4 bg-white hover:bg-blue-50 text-blue-600 font-bold text-xl py-6 px-12 shadow-xl transition-all duration-300 animate-bounce-in transform hover:scale-105"
+                  className="group inline-flex items-center gap-3 md:gap-4 bg-white hover:bg-blue-50 text-blue-600 font-bold text-base md:text-xl py-4 md:py-6 px-6 md:px-12 shadow-xl transition-all duration-300 animate-bounce-in transform hover:scale-105"
                   style={{ animationDelay: '0.6s' }}
                 >
                   <Sparkles className="w-6 h-6" />
@@ -142,7 +142,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
       {/* Featured Destinations */}
       <div
         id="featured-destinations"
-        className="relative bg-gradient-to-br from-blue-50 to-white py-24 overflow-hidden"
+        className="relative bg-gradient-to-br from-blue-50 to-white py-12 md:py-24 overflow-hidden"
       >
         {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30"></div>
@@ -152,7 +152,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
           <div className="glass-dark shadow-2xl overflow-hidden border border-blue-200 backdrop-blur-xl">
             <div className="h-2 bg-blue-600"></div>
 
-            <div className="p-10 md:p-14">
+            <div className="p-5 sm:p-8 md:p-10 lg:p-14">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
                 <div className="flex items-center gap-6 animate-slide-in-left">
                   <div className="relative">
@@ -161,7 +161,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
                     </div>
                   </div>
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2">
                       Cek Destinasi Berikut
                     </h2>
                     <p className="text-gray-600 text-lg">
@@ -248,18 +248,18 @@ export default function HomeContent({ destinations }: HomeContentProps) {
       </div>
 
       {/* Features Section */}
-      <div className="relative bg-white py-24 overflow-hidden">
+      <div className="relative bg-white py-12 md:py-24 overflow-hidden">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,white,transparent)]"></div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
           <div className="text-center mb-20 animate-fade-in-up">
             <div className="relative inline-block mb-8">
               <div className="w-24 h-24 bg-blue-600 flex items-center justify-center mx-auto shadow-2xl">
                 <Sparkles className="w-12 h-12 text-white" />
               </div>
             </div>
-            <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900">
               Fitur-Fitur yang Tersedia
             </h2>
             <p className="text-gray-600 text-xl max-w-2xl mx-auto">
@@ -267,10 +267,10 @@ export default function HomeContent({ destinations }: HomeContentProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {/* Feature 1 */}
             <div
-              className="group glass-dark border-2 border-blue-200 hover:border-blue-400 p-10 text-center transform transition-all duration-300 hover:shadow-xl animate-fade-in-up"
+              className="group glass-dark border-2 border-blue-200 hover:border-blue-400 p-6 md:p-10 text-center transform transition-all duration-300 hover:shadow-xl animate-fade-in-up"
               style={{ animationDelay: '0.1s' }}
             >
               <div className="relative inline-block mb-8">
@@ -292,7 +292,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
 
             {/* Feature 2 */}
             <div
-              className="group card-lift glass-dark border-2 border-blue-200 hover:border-blue-400 p-10 text-center transform transition-all duration-500 hover:shadow-2xl animate-fade-in-up"
+              className="group card-lift glass-dark border-2 border-blue-200 hover:border-blue-400 p-6 md:p-10 text-center transform transition-all duration-500 hover:shadow-2xl animate-fade-in-up"
               style={{ animationDelay: '0.2s' }}
             >
               <div className="relative inline-block mb-8">
@@ -314,7 +314,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
 
             {/* Feature 3 */}
             <div
-              className="group card-lift glass-dark border-2 border-blue-200 hover:border-blue-400 p-10 text-center transform transition-all duration-500 hover:shadow-2xl animate-fade-in-up"
+              className="group card-lift glass-dark border-2 border-blue-200 hover:border-blue-400 p-6 md:p-10 text-center transform transition-all duration-500 hover:shadow-2xl animate-fade-in-up"
               style={{ animationDelay: '0.3s' }}
             >
               <div className="relative inline-block mb-8">
@@ -338,7 +338,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
       </div>
 
       {/* Call to Action */}
-      <div className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 py-32 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 py-16 md:py-32 overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500/20 blur-3xl animate-pulse-scale"></div>
@@ -352,7 +352,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
           ></div>
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 text-center relative z-10">
           <div className="animate-fade-in-up">
             <div className="relative inline-block mb-10">
               <div className="w-28 h-28 bg-blue-600 flex items-center justify-center mx-auto shadow-2xl">
@@ -360,14 +360,14 @@ export default function HomeContent({ destinations }: HomeContentProps) {
               </div>
             </div>
 
-            <h2 className="text-6xl md:text-7xl font-extrabold mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 md:mb-8 leading-tight">
               <span className="text-white block mb-3">Siap Menjelajahi</span>
-              <span className="text-blue-100 text-7xl md:text-8xl">
+              <span className="text-blue-100 text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
                 Surabaya?
               </span>
             </h2>
 
-            <p className="text-2xl md:text-3xl text-blue-50 mb-14 font-light max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-blue-50 mb-8 md:mb-14 font-light max-w-4xl mx-auto leading-relaxed">
               Dapatkan rekomendasi rute wisata yang{' '}
               <span className="text-white font-semibold">
                 optimal dan terbaik
@@ -377,7 +377,7 @@ export default function HomeContent({ destinations }: HomeContentProps) {
 
             <Link
               href="/routes"
-              className="group inline-flex items-center gap-4 bg-white hover:bg-blue-50 text-blue-600 font-bold text-xl md:text-2xl py-7 px-14 shadow-2xl transition-all duration-300 transform hover:scale-105 animate-bounce-in"
+              className="group inline-flex items-center gap-3 md:gap-4 bg-white hover:bg-blue-50 text-blue-600 font-bold text-base md:text-xl lg:text-2xl py-4 md:py-7 px-8 md:px-14 shadow-2xl transition-all duration-300 transform hover:scale-105 animate-bounce-in"
             >
               <RouteIcon className="w-7 h-7" />
               BUAT RUTE SEKARANG
