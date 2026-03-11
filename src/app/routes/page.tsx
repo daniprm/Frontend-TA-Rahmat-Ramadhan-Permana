@@ -261,7 +261,7 @@ export default function RoutesPage() {
           errorMessage.includes('Network')
         ) {
           setError(
-            'Tidak dapat terhubung ke server. Pastikan API backend berjalan di http://localhost:8000',
+            'Tidak dapat terhubung ke server. Mohon coba kembali beberapa saat.',
           );
         }
         // Default error with backend message if available
@@ -277,7 +277,7 @@ export default function RoutesPage() {
         }
       } else {
         setError(
-          'Gagal mengambil rekomendasi rute. Pastikan API berjalan di http://localhost:8000',
+          'Gagal mengambil rekomendasi rute.',
         );
       }
     } finally {

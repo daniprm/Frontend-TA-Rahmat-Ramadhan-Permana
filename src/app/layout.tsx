@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: 'Rekomendasi Wisata Surabaya',
   description:
     'Dapatkan rekomendasi rute wisata terbaik di Surabaya dengan AI-powered routing system',
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    apple: [{ url: '/favicon.png', sizes: '512x512', type: 'image/png' }],
+  },
 };
 
 export default function RootLayout({
